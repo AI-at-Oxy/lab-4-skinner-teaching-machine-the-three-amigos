@@ -54,69 +54,28 @@ Choose a structure and be CONSISTENT across all your frames!
 # =============================================================================
 
 FRAMES = [
-    # Frame 1: Introduction
+    # Frame 5: Planets Wihout Moons
     {
-        "prompt": "In Python, we store data in _____. (Hint: they can vary!)",
-        "answer": "variables",
-        "feedback_correct": "Correct! Variables are containers for storing data.",
-        "feedback_incorrect": "Not quite. We store data in variables."
+        "prompt": "Which planets in the Milky Way Galaxy don't have moons?",
+        "answer": "mercury and venus",
+        "answers": ["mercury", "venus"],  # List for multiple acceptable answers
+        "hint": "These are the two innermost planets.",
+        "feedback_correct": "Correct! Mercury and Venus are the only planets in the Milky Way Galaxy without moons.",
+        "feedback_incorrect": "Not quite. The answer is Mercury and Venus.",
+        "topic": "planets-without-moons"
     },
-    
-    # Frame 2: Assignment operator
+    # Frame 6: Hottest Planet
     {
-        "prompt": "To assign a value to a variable, we use the _____ sign.",
-        "answer": "=",
-        "feedback_correct": "Yes! The = sign is the assignment operator.",
-        "feedback_incorrect": "Not quite. We use the = (equals) sign."
+        "prompt": "Which planet has the hottest surface?",
+        "answer": "venus",
+        "answers": ["venus"],  # List for multiple acceptable answers
+        "hint": "It's the second planet from the Sun.",
+        "feedback_correct": "Correct! Venus has the hottest surface in our solar system.",
+        "feedback_incorrect": "Not quite. The answer is Venus.",
+
+        "topic": "Hottest Planet"
     },
-    
-    # Frame 3: Simple assignment
-    {
-        "prompt": "To store the number 5 in a variable called x, we write: x _____ 5",
-        "answer": "=",
-        "feedback_correct": "Correct! x = 5 assigns the value 5 to x.",
-        "feedback_incorrect": "Remember, we use = for assignment. So: x = 5"
-    },
-    
-    # Frame 4: String variables
-    {
-        "prompt": "Text data in Python is called a _____.",
-        "answer": "string",
-        "feedback_correct": "Yes! Strings are sequences of characters (text).",
-        "feedback_incorrect": "Text data is called a string."
-    },
-    
-    # Frame 5: String syntax
-    {
-        "prompt": "Strings must be surrounded by _____ or double quotes.",
-        "answer": "single",
-        "feedback_correct": "Correct! Both 'hello' and \"hello\" are valid strings.",
-        "feedback_incorrect": "Strings use single quotes or double quotes: 'hello' or \"hello\""
-    },
-    
-    # Frame 6: Naming conventions
-    {
-        "prompt": "Variable names in Python cannot start with a _____.",
-        "answer": "number",
-        "feedback_correct": "Right! Variables can't start with numbers. 'var1' is ok, '1var' is not.",
-        "feedback_incorrect": "Variable names cannot start with a number."
-    },
-    
-    # Frame 7: Case sensitivity
-    {
-        "prompt": "In Python, 'Name' and 'name' are _____ variables. (same/different)",
-        "answer": "different",
-        "feedback_correct": "Correct! Python is case-sensitive.",
-        "feedback_incorrect": "Python is case-sensitive, so Name and name are different."
-    },
-    
-    # Frame 8: Print function
-    {
-        "prompt": "To display a variable's value, we use the _____ function.",
-        "answer": "print",
-        "feedback_correct": "Yes! print(x) displays the value of x.",
-        "feedback_incorrect": "We use the print() function to display values."
-    },
+   
 ]
 
 
