@@ -53,21 +53,24 @@ Choose a structure and be CONSISTENT across all your frames!
 # Replace these with your own topic!
 # =============================================================================
 
-FRAMES = [
-    # Frame 1: Introduction
+FRAMES = [ # Frame 1: Astronomy
     {
-        "prompt": "In Python, we store data in _____. (Hint: they can vary!)",
-        "answer": "variables",
-        "feedback_correct": "Correct! Variables are containers for storing data.",
-        "feedback_incorrect": "Not quite. We store data in variables."
+        "prompt": "Astronomy is the study of the _____?",
+        "answers": ["stars", "universe", "planets", "galaxies", "space", "celestial objects"],
+        "hint": "Think outside of Earth.",
+        "feedback_correct": "Yes! Astronomy is the study of celestial objects and the universe.",
+        "feedback_incorrect": "Not quite. Astronomy is the study of celestial objects and the universe.",
+        "topic": "astronomy"
     },
     
-    # Frame 2: Assignment operator
+    # Frame 2: Number of planets
     {
-        "prompt": "To assign a value to a variable, we use the _____ sign.",
-        "answer": "=",
-        "feedback_correct": "Yes! The = sign is the assignment operator.",
-        "feedback_incorrect": "Not quite. We use the = (equals) sign."
+        "prompt": "The number of planets in our solar system is ___?",
+        "answers": ["8", "eight", "ocho", "viii"],
+        "hint": "It's more than 4!",
+        "feedback_correct": "Yes! There are 8 planets in our solar system.",
+        "feedback_incorrect": "Not quite. There are 8 planets in our solar system."
+        "topic": "planets"
     },
     
     # Frame 3: Simple assignment

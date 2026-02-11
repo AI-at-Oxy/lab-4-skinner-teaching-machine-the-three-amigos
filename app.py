@@ -117,13 +117,13 @@ def complete():
 # EXTENSION IDEAS (uncomment and modify as needed)
 # =============================================================================
 
-# @app.route("/hint")
-# def show_hint():
-#     """Show a hint for the current frame (if available)."""
-#     frame_idx = session.get("current_frame", 0)
-#     frame = FRAMES[frame_idx]
-#     hint = frame.get("hint", "No hint available for this frame.")
-#     return render_template("hint.html", hint=hint, frame=frame)
+@app.route("/hint")
+def show_hint():
+    """Show a hint for the current frame (if available)."""
+    frame_idx = session.get("current_frame", 0)
+    frame = FRAMES[frame_idx]
+    hint = frame.get("hint", "No hint available for this frame.")
+    return render_template("hint.html", hint=hint, frame=frame)
 
 
 # @app.route("/reset")
