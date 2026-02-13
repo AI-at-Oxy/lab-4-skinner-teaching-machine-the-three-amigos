@@ -59,8 +59,8 @@ FRAMES = [
         "prompt": "Astronomy is the study of the _____?",
         "answers": ["stars", "universe", "planets", "galaxies", "space", "celestial objects"],
         "hint": "Think outside of Earth.",
-        "feedback_correct": "Yes! Astronomy is the study of celestial objects and the universe.",
-        "feedback_incorrect": "Not quite. Astronomy is the study of celestial objects and the universe.",
+        "feedback_correct": "Yes! Astronomy is the study of celestial objects and the stars.",
+        "feedback_incorrect": "Astronomy is the study of celestial objects and the stars. Ypu may have gotten confused with astrology, which is the belief that the positions of stars and planets can influence human affairs.",
         "topic": "astronomy"
     },  
     
@@ -69,8 +69,8 @@ FRAMES = [
         "prompt": "The number of planets in our solar system is ___?",
         "answers": ["8", "eight", "ocho", "viii"],
         "hint": "It's more than 4!",
-        "feedback_correct": "Yes! There are 8 planets in our solar system.",
-        "feedback_incorrect": "Not quite. There are 8 planets in our solar system.",
+        "feedback_correct": "Yes! There are 8 planets in our solar system. Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.",
+        "feedback_incorrect": "There are 8 planets in our solar system. Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.",
         "topic": "planets"
     },
 
@@ -79,8 +79,8 @@ FRAMES = [
         "prompt": "What is the name of the fourth planet from the Sun?",
         "answers": ["mars"],
         "hint": "It's named after the Roman god of war.",
-        "feedback_correct": "Correct! Mars is the fourth planet from the Sun.",
-        "feedback_incorrect": "Not quite. The fourth planet from the Sun is Mars.",
+        "feedback_correct": "Yes! Mars is the fourth planet from the Sun and comes after Earth, the third planet from the Sun.",
+        "feedback_incorrect": "The fourth planet from the Sun is Mars and comes after Earth, the third planet from the Sun.",
         "topic": "astronomy-planets"
     },
     
@@ -99,8 +99,8 @@ FRAMES = [
         "prompt": "Which planets in the Milky Way Galaxy don't have moons?",
         "answers": ["mercury and venus", "mercury & venus", "venus and mercury", "venus & mercury"],  # List for multiple acceptable answers
         "hint": "These are the two innermost planets.",
-        "feedback_correct": "Correct! Mercury and Venus are the only planets in the Milky Way Galaxy without moons.",
-        "feedback_incorrect": "Not quite. The answer is Mercury and Venus.",
+        "feedback_correct": "Yes! Mercury and Venus are the only planets in the Milky Way Galaxy without moons.",
+        "feedback_incorrect": "Mercury and Venus are the only planets in the Milky Way Galaxy without moons.",
         "topic": "planets-without-moons"
     },
     # Frame 6: Hottest Planet
@@ -108,8 +108,8 @@ FRAMES = [
         "prompt": "Which planet has the hottest surface?",
         "answers": ["venus"],
         "hint": "It's the second planet from the Sun.",
-        "feedback_correct": "Correct! Venus has the hottest surface in our solar system.",
-        "feedback_incorrect": "Not quite. The answer is Venus.",
+        "feedback_correct": "Yes! Venus has the hottest surface in our solar system at approximately 465°C (869°F).",
+        "feedback_incorrect": "Venus has the hottest surface in our solar system at approximately 465°C (869°F).",
 
         "topic": "Hottest Planet"
     },
