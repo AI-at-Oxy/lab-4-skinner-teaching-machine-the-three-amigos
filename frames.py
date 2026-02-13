@@ -54,9 +54,6 @@ Choose a structure and be CONSISTENT across all your frames!
 # =============================================================================
 
 FRAMES = [
-<<<<<<< HEAD
-    # Frame 5: Planets Wihout Moons
-=======
     # Frame 1: Astronomy
     {
         "prompt": "Astronomy is the study of the _____?",
@@ -98,7 +95,6 @@ FRAMES = [
     },
     
     # Frame 5: Planets Without Moons
->>>>>>> refs/remotes/origin/astronomy
     {
         "prompt": "Which planets in the Milky Way Galaxy don't have moons?",
         "answer": "mercury and venus",
@@ -111,12 +107,7 @@ FRAMES = [
     # Frame 6: Hottest Planet
     {
         "prompt": "Which planet has the hottest surface?",
-<<<<<<< HEAD
-        "answer": "venus",
-        "answers": ["venus"],  # List for multiple acceptable answers
-=======
         "answers": ["venus"],
->>>>>>> refs/remotes/origin/astronomy
         "hint": "It's the second planet from the Sun.",
         "feedback_correct": "Correct! Venus has the hottest surface in our solar system.",
         "feedback_incorrect": "Not quite. The answer is Venus.",
