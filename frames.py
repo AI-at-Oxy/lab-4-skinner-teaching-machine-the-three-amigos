@@ -97,8 +97,7 @@ FRAMES = [
     # Frame 5: Planets Without Moons
     {
         "prompt": "Which planets in the Milky Way Galaxy don't have moons?",
-        "answer": "mercury and venus",
-        "answers": ["mercury", "venus"],  # List for multiple acceptable answers
+        "answers": ["mercury and venus", "mercury & venus", "venus and mercury", "venus & mercury"],  # List for multiple acceptable answers
         "hint": "These are the two innermost planets.",
         "feedback_correct": "Correct! Mercury and Venus are the only planets in the Milky Way Galaxy without moons.",
         "feedback_incorrect": "Not quite. The answer is Mercury and Venus.",
