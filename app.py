@@ -18,6 +18,10 @@ YOUR TASK:
 from flask import Flask, render_template, request, session, redirect, url_for
 from frames import FRAMES
 
+import json
+from datetime import datetime
+
+
 app = Flask(__name__)
 app.secret_key = "change-this-to-a-secret-key"  # Change this in production!
 
@@ -30,6 +34,7 @@ def index():
     # Initialize/reset session variables
     session["current_frame"] = 0
     session["score"] = 0
+    session["wrong_count"] = 0
     
     return render_template("index.html", total_frames=len(FRAMES))
 
@@ -83,6 +88,8 @@ def submit_answer():
         # Update score and advance to next frame
         session["score"] = session.get("score", 0) + 1
         session["current_frame"] = frame_idx + 1
+    else:
+        session["wrong_count"] = session.get("wrong_count", 0) + 1
     
     # Get feedback message (with fallback defaults)
     if is_correct:
@@ -104,9 +111,37 @@ def complete():
     Display final results after all frames are completed.
     """
     score = session.get("score", 0)
+    wrong_count = session.get("wrong_count", 0)
+
     total = len(FRAMES)
     percentage = round((score / total) * 100) if total > 0 else 0
     
+    result_data = {
+        "timestamp": datetime.now().isoformat(),
+        "score": score,
+        "wrong_count": wrong_count,
+        "total": total,
+        "percentage": percentage
+    }
+
+    try:
+        # Load existing results if file exists
+        try:
+            with open("results.json", "r") as f:
+                results = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            results = []
+
+        # Append new result
+        results.append(result_data)
+
+        # Save back to file
+        with open("results.json", "w") as f:
+            json.dump(results, f, indent=4)
+
+    except Exception as e:
+        print("Error saving results:", e)
+
     return render_template(
         "complete.html",
         score=score,
