@@ -17,6 +17,7 @@ YOUR TASK:
 
 from flask import Flask, render_template, request, session, redirect, url_for
 from frames import FRAMES
+import time
 
 import json
 from datetime import datetime
@@ -51,6 +52,9 @@ def show_frame():
     if frame_idx >= len(FRAMES):
         return redirect(url_for("complete"))
     
+    #record start time for this frame
+    session["frame_start_time"] = time.time()
+    
     frame = FRAMES[frame_idx]
     
     return render_template(
@@ -71,6 +75,19 @@ def submit_answer():
     """
     frame_idx = session.get("current_frame", 0)
     frame = FRAMES[frame_idx]
+
+    #Tracking time
+    start_time = session.get("frame_start_time")
+    elapsed = None
+    if start_time:
+        elapsed = time.time() - start_time
+    
+    if "frame_times" not in session:
+        session["frame_times"] = {}
+    
+    if elapsed is not None:
+        session["frame_times"][str(frame_idx)] = round(elapsed, 2)
+        session.modified = True
     
     # Get and normalize the user's answer
     user_answer = request.form.get("answer", "").strip().lower()
@@ -115,6 +132,8 @@ def complete():
 
     total = len(FRAMES)
     percentage = round((score / total) * 100) if total > 0 else 0
+
+    frame_times = session.get("frame_times", {})
     
     result_data = {
         "timestamp": datetime.now().isoformat(),
@@ -146,7 +165,8 @@ def complete():
         "complete.html",
         score=score,
         total=total,
-        percentage=percentage
+        percentage=percentage,
+        frame_times=frame_times
     )
 
 
@@ -154,13 +174,13 @@ def complete():
 # EXTENSION IDEAS (uncomment and modify as needed)
 # =============================================================================
 
-# @app.route("/hint")
-# def show_hint():
-#     """Show a hint for the current frame (if available)."""
-#     frame_idx = session.get("current_frame", 0)
-#     frame = FRAMES[frame_idx]
-#     hint = frame.get("hint", "No hint available for this frame.")
-#     return render_template("hint.html", hint=hint, frame=frame)
+@app.route("/hint")
+def show_hint():
+    """Show a hint for the current frame (if available)."""
+    frame_idx = session.get("current_frame", 0)
+    frame = FRAMES[frame_idx]
+    hint = frame.get("hint", "No hint available for this frame.")
+    return render_template("hint.html", hint=hint, frame=frame)
 
 
 # @app.route("/reset")
