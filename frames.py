@@ -77,7 +77,7 @@ FRAMES = [
     # Frame 3: The Fourth Planet
     {
         "prompt": "What is the name of the fourth planet from the Sun?",
-        "answer": "mars",
+        "answers": ["mars"],
         "hint": "It's named after the Roman god of war.",
         "feedback_correct": "Correct! Mars is the fourth planet from the Sun.",
         "feedback_incorrect": "Not quite. The fourth planet from the Sun is Mars.",
@@ -94,7 +94,7 @@ FRAMES = [
         "topic": "moons"
     },
     
-    # Frame 5: Planets Wihout Moons
+    # Frame 5: Planets Without Moons
     {
         "prompt": "Which planets in the Milky Way Galaxy don't have moons?",
         "answers": ["mercury", "venus", "mercury and venus", "venus and mercury"],  # List for multiple acceptable answers
@@ -106,7 +106,7 @@ FRAMES = [
     # Frame 6: Hottest Planet
     {
         "prompt": "Which planet has the hottest surface?",
-        "answer": "venus",
+        "answers": ["venus"],
         "hint": "It's the second planet from the Sun.",
         "feedback_correct": "Correct! Venus has the hottest surface in our solar system.",
         "feedback_incorrect": "Not quite. The answer is Venus.",
