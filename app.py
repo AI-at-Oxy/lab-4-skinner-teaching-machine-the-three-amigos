@@ -71,11 +71,13 @@ def submit_answer():
     user_answer = request.form.get("answer", "").strip().lower()
     
     # Get and normalize the correct answer
-    # TODO: If you implement multiple acceptable answers, modify this logic
-    correct_answer = frame["answer"].strip().lower()
+    correct_answers = [ans.strip().lower() for ans in frame["answers"]]
     
+    print("User answer:", repr(user_answer))
+    print("Correct answers:", repr(correct_answers))
+
     # Check if correct
-    is_correct = (user_answer == correct_answer)
+    is_correct = (user_answer in correct_answers)
     
     if is_correct:
         # Update score and advance to next frame

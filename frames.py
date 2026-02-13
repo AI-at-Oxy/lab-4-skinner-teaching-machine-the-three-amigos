@@ -54,7 +54,51 @@ Choose a structure and be CONSISTENT across all your frames!
 # =============================================================================
 
 FRAMES = [
+<<<<<<< HEAD
     # Frame 5: Planets Wihout Moons
+=======
+    # Frame 1: Astronomy
+    {
+        "prompt": "Astronomy is the study of the _____?",
+        "answers": ["stars", "universe", "planets", "galaxies", "space", "celestial objects"],
+        "hint": "Think outside of Earth.",
+        "feedback_correct": "Yes! Astronomy is the study of celestial objects and the universe.",
+        "feedback_incorrect": "Not quite. Astronomy is the study of celestial objects and the universe.",
+        "topic": "astronomy"
+    },  
+    
+    # Frame 2: Number of planets
+    {
+        "prompt": "The number of planets in our solar system is ___?",
+        "answers": ["8", "eight", "ocho", "viii"],
+        "hint": "It's more than 4!",
+        "feedback_correct": "Yes! There are 8 planets in our solar system.",
+        "feedback_incorrect": "Not quite. There are 8 planets in our solar system.",
+        "topic": "planets"
+    },
+
+    # Frame 3: The Fourth Planet
+    {
+        "prompt": "What is the name of the fourth planet from the Sun?",
+        "answers": ["mars"],
+        "hint": "It's named after the Roman god of war.",
+        "feedback_correct": "Correct! Mars is the fourth planet from the Sun.",
+        "feedback_incorrect": "Not quite. The fourth planet from the Sun is Mars.",
+        "topic": "astronomy-planets"
+    },
+    
+    # Frame 4: Number of Moons
+    {
+        "prompt": "How many moons does mars have?",
+        "answers": ["2", "two", "dos", "ii"],
+        "hint": "It's a single digit number.",
+        "feedback_correct": "Yes! Mars has two moons: Phobos and Deimos.",
+        "feedback_incorrect": "Mars has two moons: Phobos and Deimos.",
+        "topic": "moons"
+    },
+    
+    # Frame 5: Planets Without Moons
+>>>>>>> refs/remotes/origin/astronomy
     {
         "prompt": "Which planets in the Milky Way Galaxy don't have moons?",
         "answer": "mercury and venus",
@@ -67,8 +111,12 @@ FRAMES = [
     # Frame 6: Hottest Planet
     {
         "prompt": "Which planet has the hottest surface?",
+<<<<<<< HEAD
         "answer": "venus",
         "answers": ["venus"],  # List for multiple acceptable answers
+=======
+        "answers": ["venus"],
+>>>>>>> refs/remotes/origin/astronomy
         "hint": "It's the second planet from the Sun.",
         "feedback_correct": "Correct! Venus has the hottest surface in our solar system.",
         "feedback_incorrect": "Not quite. The answer is Venus.",
