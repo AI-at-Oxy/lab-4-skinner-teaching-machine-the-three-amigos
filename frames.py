@@ -73,12 +73,31 @@ FRAMES = [
         "feedback_incorrect": "Not quite. There are 8 planets in our solar system.",
         "topic": "planets"
     },
+
+    # Frame 3: The Fourth Planet
+    {
+        "prompt": "What is the name of the fourth planet from the Sun?",
+        "answer": "mars",
+        "hint": "It's named after the Roman god of war.",
+        "feedback_correct": "Correct! Mars is the fourth planet from the Sun.",
+        "feedback_incorrect": "Not quite. The fourth planet from the Sun is Mars.",
+        "topic": "astronomy-planets"
+    },
+    
+    # Frame 4: Number of Moons
+    {
+        "prompt": "How many moons does mars have?",
+        "answers": ["2", "two", "dos", "ii"],
+        "hint": "It's a single digit number.",
+        "feedback_correct": "Yes! Mars has two moons: Phobos and Deimos.",
+        "feedback_incorrect": "Mars has two moons: Phobos and Deimos.",
+        "topic": "moons"
+    },
     
     # Frame 5: Planets Wihout Moons
     {
         "prompt": "Which planets in the Milky Way Galaxy don't have moons?",
-        "answer": "mercury and venus",
-        "answers": ["mercury", "venus"],  # List for multiple acceptable answers
+        "answers": ["mercury", "venus", "mercury and venus", "venus and mercury"],  # List for multiple acceptable answers
         "hint": "These are the two innermost planets.",
         "feedback_correct": "Correct! Mercury and Venus are the only planets in the Milky Way Galaxy without moons.",
         "feedback_incorrect": "Not quite. The answer is Mercury and Venus.",
@@ -88,7 +107,6 @@ FRAMES = [
     {
         "prompt": "Which planet has the hottest surface?",
         "answer": "venus",
-        "answers": ["venus"],  # List for multiple acceptable answers
         "hint": "It's the second planet from the Sun.",
         "feedback_correct": "Correct! Venus has the hottest surface in our solar system.",
         "feedback_incorrect": "Not quite. The answer is Venus.",
