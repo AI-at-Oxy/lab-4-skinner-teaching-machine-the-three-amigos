@@ -47,6 +47,14 @@
 </div>
 {% endif %}
 
+<h3>Time per frame</h3>
+<ul>
+{% for frame, t in frame_times.items() %}
+    <li>Frame {{ frame|int + 1 }}: {{ t }} seconds</li>
+{% endfor %}
+</ul>
+
+
 <div style="margin-top: 30px; text-align: center;">
     <a href="{{ url_for('index') }}" class="button">Start Over</a>
 </div>

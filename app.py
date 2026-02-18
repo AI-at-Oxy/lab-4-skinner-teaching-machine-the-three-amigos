@@ -17,6 +17,11 @@ YOUR TASK:
 
 from flask import Flask, render_template, request, session, redirect, url_for
 from frames import FRAMES
+import time
+
+import json
+from datetime import datetime
+
 
 app = Flask(__name__)
 app.secret_key = "change-this-to-a-secret-key"  # Change this in production!
@@ -30,6 +35,7 @@ def index():
     # Initialize/reset session variables
     session["current_frame"] = 0
     session["score"] = 0
+    session["wrong_count"] = 0
     
     return render_template("index.html", total_frames=len(FRAMES))
 
@@ -45,6 +51,9 @@ def show_frame():
     # Check if we've completed all frames
     if frame_idx >= len(FRAMES):
         return redirect(url_for("complete"))
+    
+    #record start time for this frame
+    session["frame_start_time"] = time.time()
     
     frame = FRAMES[frame_idx]
     
@@ -66,21 +75,38 @@ def submit_answer():
     """
     frame_idx = session.get("current_frame", 0)
     frame = FRAMES[frame_idx]
+
+    #Tracking time
+    start_time = session.get("frame_start_time")
+    elapsed = None
+    if start_time:
+        elapsed = time.time() - start_time
+    
+    if "frame_times" not in session:
+        session["frame_times"] = {}
+    
+    if elapsed is not None:
+        session["frame_times"][str(frame_idx)] = round(elapsed, 2)
+        session.modified = True
     
     # Get and normalize the user's answer
     user_answer = request.form.get("answer", "").strip().lower()
     
     # Get and normalize the correct answer
-    # TODO: If you implement multiple acceptable answers, modify this logic
-    correct_answer = frame["answer"].strip().lower()
+    correct_answers = [ans.strip().lower() for ans in frame["answers"]]
     
+    print("User answer:", repr(user_answer))
+    print("Correct answers:", repr(correct_answers))
+
     # Check if correct
-    is_correct = (user_answer == correct_answer)
+    is_correct = (user_answer in correct_answers)
     
     if is_correct:
         # Update score and advance to next frame
         session["score"] = session.get("score", 0) + 1
         session["current_frame"] = frame_idx + 1
+    else:
+        session["wrong_count"] = session.get("wrong_count", 0) + 1
     
     # Get feedback message (with fallback defaults)
     if is_correct:
@@ -102,14 +128,45 @@ def complete():
     Display final results after all frames are completed.
     """
     score = session.get("score", 0)
+    wrong_count = session.get("wrong_count", 0)
+
     total = len(FRAMES)
     percentage = round((score / total) * 100) if total > 0 else 0
+
+    frame_times = session.get("frame_times", {})
     
+    result_data = {
+        "timestamp": datetime.now().isoformat(),
+        "score": score,
+        "wrong_count": wrong_count,
+        "total": total,
+        "percentage": percentage
+    }
+
+    try:
+        # Load existing results if file exists
+        try:
+            with open("results.json", "r") as f:
+                results = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            results = []
+
+        # Append new result
+        results.append(result_data)
+
+        # Save back to file
+        with open("results.json", "w") as f:
+            json.dump(results, f, indent=4)
+
+    except Exception as e:
+        print("Error saving results:", e)
+
     return render_template(
         "complete.html",
         score=score,
         total=total,
-        percentage=percentage
+        percentage=percentage,
+        frame_times=frame_times
     )
 
 
@@ -117,13 +174,13 @@ def complete():
 # EXTENSION IDEAS (uncomment and modify as needed)
 # =============================================================================
 
-# @app.route("/hint")
-# def show_hint():
-#     """Show a hint for the current frame (if available)."""
-#     frame_idx = session.get("current_frame", 0)
-#     frame = FRAMES[frame_idx]
-#     hint = frame.get("hint", "No hint available for this frame.")
-#     return render_template("hint.html", hint=hint, frame=frame)
+@app.route("/hint")
+def show_hint():
+    """Show a hint for the current frame (if available)."""
+    frame_idx = session.get("current_frame", 0)
+    frame = FRAMES[frame_idx]
+    hint = frame.get("hint", "No hint available for this frame.")
+    return render_template("hint.html", hint=hint, frame=frame)
 
 
 # @app.route("/reset")

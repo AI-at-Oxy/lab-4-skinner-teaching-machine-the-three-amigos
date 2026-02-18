@@ -54,69 +54,66 @@ Choose a structure and be CONSISTENT across all your frames!
 # =============================================================================
 
 FRAMES = [
-    # Frame 1: Introduction
+    # Frame 1: Astronomy
     {
-        "prompt": "In Python, we store data in _____. (Hint: they can vary!)",
-        "answer": "variables",
-        "feedback_correct": "Correct! Variables are containers for storing data.",
-        "feedback_incorrect": "Not quite. We store data in variables."
+        "prompt": "Astronomy is the study of the _____?",
+        "answers": ["stars", "universe", "planets", "galaxies", "space", "celestial objects"],
+        "hint": "Think outside of Earth.",
+        "feedback_correct": "Yes! Astronomy is the study of celestial objects and the stars.",
+        "feedback_incorrect": "Astronomy is the study of celestial objects and the stars. Ypu may have gotten confused with astrology, which is the belief that the positions of stars and planets can influence human affairs.",
+        "topic": "astronomy"
+    },  
+    
+    # Frame 2: Number of planets
+    {
+        "prompt": "The number of planets in our solar system is ___?",
+        "answers": ["8", "eight", "ocho", "viii"],
+        "hint": "It's more than 4!",
+        "feedback_correct": "Yes! There are 8 planets in our solar system. Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.",
+        "feedback_incorrect": "There are 8 planets in our solar system. Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.",
+        "topic": "planets"
+    },
+
+    # Frame 3: The Fourth Planet
+    {
+        "prompt": "What is the name of the fourth planet from the Sun?",
+        "answers": ["mars"],
+        "hint": "It's named after the Roman god of war.",
+        "feedback_correct": "Yes! Mars is the fourth planet from the Sun and comes after Earth, the third planet from the Sun.",
+        "feedback_incorrect": "The fourth planet from the Sun is Mars and comes after Earth, the third planet from the Sun.",
+        "topic": "astronomy-planets"
     },
     
-    # Frame 2: Assignment operator
+    # Frame 4: Number of Moons
     {
-        "prompt": "To assign a value to a variable, we use the _____ sign.",
-        "answer": "=",
-        "feedback_correct": "Yes! The = sign is the assignment operator.",
-        "feedback_incorrect": "Not quite. We use the = (equals) sign."
+        "prompt": "How many moons does mars have?",
+        "answers": ["2", "two", "dos", "ii"],
+        "hint": "It's a single digit number.",
+        "feedback_correct": "Yes! Mars has two moons: Phobos and Deimos.",
+        "feedback_incorrect": "Mars has two moons: Phobos and Deimos.",
+        "topic": "moons"
     },
     
-    # Frame 3: Simple assignment
+    # Frame 5: Planets Without Moons
     {
-        "prompt": "To store the number 5 in a variable called x, we write: x _____ 5",
-        "answer": "=",
-        "feedback_correct": "Correct! x = 5 assigns the value 5 to x.",
-        "feedback_incorrect": "Remember, we use = for assignment. So: x = 5"
+        "prompt": "Which planets in the Milky Way Galaxy don't have moons?",
+        "answers": ["mercury and venus", "mercury & venus", "venus and mercury", "venus & mercury"],  # List for multiple acceptable answers
+        "hint": "These are the two innermost planets.",
+        "feedback_correct": "Yes! Mercury and Venus are the only planets in the Milky Way Galaxy without moons.",
+        "feedback_incorrect": "Mercury and Venus are the only planets in the Milky Way Galaxy without moons.",
+        "topic": "planets-without-moons"
     },
-    
-    # Frame 4: String variables
+    # Frame 6: Hottest Planet
     {
-        "prompt": "Text data in Python is called a _____.",
-        "answer": "string",
-        "feedback_correct": "Yes! Strings are sequences of characters (text).",
-        "feedback_incorrect": "Text data is called a string."
+        "prompt": "Which planet has the hottest surface?",
+        "answers": ["venus"],
+        "hint": "It's the second planet from the Sun.",
+        "feedback_correct": "Yes! Venus has the hottest surface in our solar system at approximately 465°C (869°F).",
+        "feedback_incorrect": "Venus has the hottest surface in our solar system at approximately 465°C (869°F).",
+
+        "topic": "Hottest Planet"
     },
-    
-    # Frame 5: String syntax
-    {
-        "prompt": "Strings must be surrounded by _____ or double quotes.",
-        "answer": "single",
-        "feedback_correct": "Correct! Both 'hello' and \"hello\" are valid strings.",
-        "feedback_incorrect": "Strings use single quotes or double quotes: 'hello' or \"hello\""
-    },
-    
-    # Frame 6: Naming conventions
-    {
-        "prompt": "Variable names in Python cannot start with a _____.",
-        "answer": "number",
-        "feedback_correct": "Right! Variables can't start with numbers. 'var1' is ok, '1var' is not.",
-        "feedback_incorrect": "Variable names cannot start with a number."
-    },
-    
-    # Frame 7: Case sensitivity
-    {
-        "prompt": "In Python, 'Name' and 'name' are _____ variables. (same/different)",
-        "answer": "different",
-        "feedback_correct": "Correct! Python is case-sensitive.",
-        "feedback_incorrect": "Python is case-sensitive, so Name and name are different."
-    },
-    
-    # Frame 8: Print function
-    {
-        "prompt": "To display a variable's value, we use the _____ function.",
-        "answer": "print",
-        "feedback_correct": "Yes! print(x) displays the value of x.",
-        "feedback_incorrect": "We use the print() function to display values."
-    },
+   
 ]
 
 
